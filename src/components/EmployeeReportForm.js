@@ -14,7 +14,7 @@ const EmployeeReportForm = () => {
         <Form>
           <Form.Group>
             <Form.Label>Employee Name</Form.Label>
-            <Form.Control type='email' placeholder='Enter Name' />
+            <Form.Control type='text' placeholder='Enter Name' required />
           </Form.Group>
 
           <p className='text-black font-italic text-center text-uppercase font-weight-bold'>
@@ -23,30 +23,34 @@ const EmployeeReportForm = () => {
 
           <Form.Group>
             <Form.Label>Monday</Form.Label>
-            <Form.Control type='time' placeholder='Password' />
+            <Form.Control type='time' placeholder='Password' required />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Tuesday</Form.Label>
-            <Form.Control type='time' placeholder='Password' />
+            <Form.Control type='time' placeholder='Password' required />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Wednesday</Form.Label>
-            <Form.Control type='time' placeholder='Password' />
+            <Form.Control type='time' placeholder='Password' required />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Thursday</Form.Label>
-            <Form.Control type='time' placeholder='Password' />
+            <Form.Control type='time' placeholder='Password' required />
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Friday</Form.Label>
-            <Form.Control type='time' placeholder='Password' />
+            <Form.Control type='time' placeholder='Password' required />
           </Form.Group>
 
           <Button variant='primary' type='submit'>
+            Add Employee Detail
+          </Button>
+
+          <Button variant='success' type='submit' className='float-right'>
             Generate Report
           </Button>
         </Form>
