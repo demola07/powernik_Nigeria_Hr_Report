@@ -11,6 +11,7 @@ function App() {
       <>
         <Switch>
           <Route exact path='/' component={EmployeesReports} />
+          <Route exact path='/reports' component={EmployeesReports} />
           <Route exact path='/reportForm' component={EmployeeReportForm} />
           <Route exact path='/report' component={EmployeeReport} />
         </Switch>

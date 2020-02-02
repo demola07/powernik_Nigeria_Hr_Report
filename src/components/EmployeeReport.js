@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Table from 'react-bootstrap/Table';
@@ -41,9 +42,9 @@ const EmployeeReport = () => {
           </Table>
         </Container>
 
-        <Button variant='primary' className='float-right'>
+        <Link to='/' variant='primary' className='float-right'>
           Back to Reports
-        </Button>
+        </Link>
       </Jumbotron>
     </>
   );

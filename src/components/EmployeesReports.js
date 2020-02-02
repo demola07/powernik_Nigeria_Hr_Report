@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -23,7 +24,9 @@ const EmployeesReports = () => {
           </tbody>
         </Table>
 
-        <Button variant='primary'>Generate New Report</Button>
+        <Link to='/reportForm' variant='primary'>
+          Generate New Report
+        </Link>
       </Container>
     </>
   );
