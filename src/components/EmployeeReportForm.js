@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+import moment from 'moment';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -86,6 +87,43 @@ const EmployeeReportForm = () => {
     setTime({ ...time, [name]: value });
     console.log(time);
   };
+
+  const RESUMPTION_TIME = '09:00';
+
+  //Calculate Daily Bonus
+  const getBonus = (resumptionTime, day) => {
+    const resumeTime = moment(resumptionTime, 'HH:mm');
+
+    const actualTime = moment(day, 'HH:mm');
+    const difference = moment.duration(resumeTime.diff(actualTime));
+    const mins = difference.asMinutes();
+    const minutes = Math.floor(mins);
+
+    const bonus = (minutes / 5) * 50;
+    return bonus;
+  };
+
+  // const res = moment(RESUME, 'HH:mm');
+
+  // const mon = moment(monday, 'HH:mm');
+  // console.log(mon);
+
+  // const duration = moment.duration(res.diff(mon));
+  // const mins = duration.asMinutes();
+  // const dur = Math.floor(mins);
+  // console.log(dur);
+
+  const report = {
+    name: name,
+    bonus: {
+      mondayBonus: getBonus(RESUMPTION_TIME, monday),
+      tuesdayBonus: getBonus(RESUMPTION_TIME, tuesday),
+      wednesdayBonus: getBonus(RESUMPTION_TIME, wednesday),
+      thursdayBonus: getBonus(RESUMPTION_TIME, thursday),
+      fridayBonus: getBonus(RESUMPTION_TIME, friday)
+    }
+  };
+  console.log(report);
 
   return (
     <>
