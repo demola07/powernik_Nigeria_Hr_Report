@@ -61,7 +61,8 @@ const EmployeeReportForm = () => {
       wednesdayBonus: getBonus(RESUMPTION_TIME, wednesday),
       thursdayBonus: getBonus(RESUMPTION_TIME, thursday),
       fridayBonus: getBonus(RESUMPTION_TIME, friday)
-    }
+    },
+    weekBonus: ''
   };
   console.log(report);
 

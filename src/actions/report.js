@@ -9,6 +9,18 @@ export const addEmpolyeeDetail = report => async dispatch => {
   } catch (error) {
     console.error(error);
   }
+
+  const {
+    mondayBonus,
+    tuesdayBonus,
+    wednesdayBonus,
+    thursdayBonus,
+    fridayBonus
+  } = report.bonus;
+
+  report.weekBonus =
+    mondayBonus + tuesdayBonus + wednesdayBonus + thursdayBonus + fridayBonus;
+
   dispatch({
     type: ADD_EMPLOYEE_DETAIL,
     payload: report
