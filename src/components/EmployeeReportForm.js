@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import moment from 'moment';
+import axios from 'axios';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -67,7 +68,7 @@ const EmployeeReportForm = () => {
   // };
 
   const [name, setName] = useState('');
-  const [image, setImage] = useState('');
+
   const [time, setTime] = useState({
     monday: '',
     tuesday: '',
@@ -113,8 +114,15 @@ const EmployeeReportForm = () => {
   // const dur = Math.floor(mins);
   // console.log(dur);
 
+  // const getImage = async () => {
+  //   const res = await axios.get('https://randomuser.me/api/?inc=picture');
+  //   console.log(res.data.results[0].picture.medium);
+  // };
+  // getImage();
+
   const report = {
     name: name,
+    image: '',
     bonus: {
       mondayBonus: getBonus(RESUMPTION_TIME, monday),
       tuesdayBonus: getBonus(RESUMPTION_TIME, tuesday),
