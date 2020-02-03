@@ -2,70 +2,18 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import moment from 'moment';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { addEmpolyeeDetail } from '../actions/report';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const EmployeeReportForm = () => {
-  // const [employeeDetails, setEmployeeDetails] = useState({
-  //   name: {
-  //     empName: ''
-  //   },
-  //   image: {
-  //     empImage: ''
-  //   },
-  //   day: {
-  //     monday: '',
-  //     tuesday: '',
-  //     wednesday: '',
-  //     thursday: '',
-  //     friday: ''
-  //   },
-  //   bonus: {
-  //     mondayBonus: '',
-  //     tuesdayBonus: '',
-  //     wednesdayBonus: '',
-  //     thursdayBonus: '',
-  //     fridayBonus: ''
-  //   }
-  // });
+  const dispatch = useDispatch();
 
-  // state destructuring
-  // const {
-  //   name: { empName }
-  // } = employeeDetails;
-  // const {
-  //   day: { monday, tuesday, wednesday, thursday, friday }
-  // } = employeeDetails;
-  // const {
-  //   bonus: {
-  //     mondayBonus,
-  //     tuesdayBonus,
-  //     wednesdayBonus,
-  //     thursdayBonus,
-  //     fridayBonus
-  //   }
-  // } = employeeDetails;
-
-  // const handleChange = e => {
-  //   const { name, value } = e.target;
-  //   setEmployeeDetails({
-  //     ...employeeDetails,
-  //     [name]: value
-  //   });
-  //   console.log(employeeDetails);
-  // };
-
-  // const handleChange = e => {
-  //   const { name, value } = e.target;
-  //   setEmployeeDetails(prevState => {
-  //     return {
-  //       ...prevState,
-  //       name: value
-  //     };
-  //   });
-  //   console.log(employeeDetails);
-  // };
+  const state = useSelector(state => {
+    return state;
+  });
 
   const [name, setName] = useState('');
 
@@ -104,22 +52,6 @@ const EmployeeReportForm = () => {
     return bonus;
   };
 
-  // const res = moment(RESUME, 'HH:mm');
-
-  // const mon = moment(monday, 'HH:mm');
-  // console.log(mon);
-
-  // const duration = moment.duration(res.diff(mon));
-  // const mins = duration.asMinutes();
-  // const dur = Math.floor(mins);
-  // console.log(dur);
-
-  // const getImage = async () => {
-  //   const res = await axios.get('https://randomuser.me/api/?inc=picture');
-  //   console.log(res.data.results[0].picture.medium);
-  // };
-  // getImage();
-
   const report = {
     name: name,
     image: '',
@@ -133,13 +65,27 @@ const EmployeeReportForm = () => {
   };
   console.log(report);
 
+  const onSubmit = event => {
+    event.preventDefault();
+
+    dispatch(addEmpolyeeDetail(report));
+    setName('');
+    setTime({
+      monday: '',
+      tuesday: '',
+      wednesday: '',
+      thursday: '',
+      friday: ''
+    });
+  };
+
   return (
     <>
       <Container>
         <h1 className='text-center bg-secondary p-3 mb-4'>
           Employee Report Form
         </h1>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Form.Group>
             <Form.Label>Employee Name</Form.Label>
             <Form.Control
@@ -224,11 +170,10 @@ const EmployeeReportForm = () => {
           <Button variant='primary' type='submit'>
             Add Employee Detail
           </Button>
-
-          <Button variant='success' type='submit' className='float-right'>
-            Generate Report
-          </Button>
         </Form>
+        <Button variant='success' type='submit' className='float-right'>
+          Generate Report
+        </Button>
       </Container>
     </>
   );
