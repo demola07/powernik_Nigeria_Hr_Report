@@ -2,16 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const EmployeesReports = ({ match }) => {
-  const dispatch = useDispatch();
-
   const state = useSelector(state => {
     return state.report;
   });
-  console.log(state);
 
   return (
     <>

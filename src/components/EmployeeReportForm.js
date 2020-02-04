@@ -2,24 +2,20 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
 import moment from 'moment';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addEmpolyeeDetail, generateReport } from '../actions/report';
+import { addEmpolyeeDetail } from '../actions/report';
 import { useHistory } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const EmployeeReportForm = props => {
-  console.log(props);
-
   let history = useHistory();
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
     return state.report;
   });
-  console.log(state);
 
   const [name, setName] = useState('');
 
@@ -37,12 +33,10 @@ const EmployeeReportForm = props => {
   const handleNameChange = event => {
     const { value } = event.target;
     setName(value);
-    console.log(name);
   };
   const handleTimeChange = event => {
     const { name, value } = event.target;
     setTime({ ...time, [name]: value });
-    console.log(time);
   };
 
   const RESUMPTION_TIME = '09:00';
@@ -73,7 +67,6 @@ const EmployeeReportForm = props => {
     },
     weekBonus: ''
   };
-  console.log(report);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -100,7 +93,6 @@ const EmployeeReportForm = props => {
     }
 
     history.push('/report');
-    // dispatch(generateReport());
   };
 
   return (

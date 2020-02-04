@@ -3,16 +3,12 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const EmployeeReport = ({ match }) => {
-  console.log(match.params.name);
-
   const state = useSelector(state => {
     return state.report;
   });
-  console.log(state);
 
   const empReport = state.filter(emp => {
     return emp.name === match.params.name;

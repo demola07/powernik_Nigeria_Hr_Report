@@ -1,4 +1,4 @@
-import { ADD_EMPLOYEE_DETAIL, GENERATE_REPORT } from './types';
+import { ADD_EMPLOYEE_DETAIL } from './types';
 import axios from 'axios';
 
 export const addEmpolyeeDetail = report => async dispatch => {
@@ -26,5 +26,3 @@ export const addEmpolyeeDetail = report => async dispatch => {
     payload: report
   });
 };
-
-export const generateReport = () => dispatch => {};
