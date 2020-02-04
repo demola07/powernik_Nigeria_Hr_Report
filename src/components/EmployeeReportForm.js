@@ -84,7 +84,7 @@ const EmployeeReportForm = props => {
   const onGenerateReport = event => {
     event.preventDefault();
 
-    if (!state.length) {
+    if (!state.length || state.length < 10) {
       setAlert(true);
       setTimeout(() => {
         setAlert(false);
