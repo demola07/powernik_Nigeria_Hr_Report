@@ -9,7 +9,7 @@ const EmployeesReports = () => {
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
-    return state.form;
+    return state.report;
   });
   console.log(state);
 
@@ -24,11 +24,26 @@ const EmployeesReports = () => {
             </tr>
           </thead>
 
-          <tbody>
+          {/* <tbody>
             <tr>
               <td>Mark</td>
               <td>40</td>
             </tr>
+          </tbody> */}
+
+          <tbody>
+            {state.length > 0 ? (
+              state.map((data, index) => (
+                <tr key={index}>
+                  <td>{data.name}</td>
+                  <td>{data.weekBonus}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan='2'>No Data Added</td>
+              </tr>
+            )}
           </tbody>
         </Table>
 

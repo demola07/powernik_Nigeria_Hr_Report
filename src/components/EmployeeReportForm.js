@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
 import moment from 'moment';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addEmpolyeeDetail } from '../actions/report';
+import { addEmpolyeeDetail, generateReport } from '../actions/report';
+import { useHistory } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const EmployeeReportForm = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
-    return state;
+    return state.report;
   });
+  console.log(state);
 
   const [name, setName] = useState('');
+
+  const [alert, setAlert] = useState(false);
 
   const [time, setTime] = useState({
     monday: '',
@@ -68,7 +74,6 @@ const EmployeeReportForm = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-
     dispatch(addEmpolyeeDetail(report));
     setName('');
     setTime({
@@ -78,6 +83,20 @@ const EmployeeReportForm = () => {
       thursday: '',
       friday: ''
     });
+  };
+
+  const onGenerateReport = event => {
+    event.preventDefault();
+
+    // if (!state.length || state.length <= 2) {
+    //   setAlert(true);
+    //   setTimeout(() => {
+    //     setAlert(false);
+    //   }, 3000);
+    //   return;
+    // }
+    history.push('/reports');
+    // dispatch(generateReport());
   };
 
   return (
@@ -171,8 +190,19 @@ const EmployeeReportForm = () => {
           <Button variant='primary' type='submit'>
             Add Employee Detail
           </Button>
+
+          {alert && (
+            <Alert variant='warning' className='warning'>
+              ERROR.....Enter data for all 10 staffs
+            </Alert>
+          )}
         </Form>
-        <Button variant='success' type='submit' className='float-right'>
+        <Button
+          variant='success'
+          type='submit'
+          className='float-right'
+          onClick={onGenerateReport}
+        >
           Generate Report
         </Button>
       </Container>
