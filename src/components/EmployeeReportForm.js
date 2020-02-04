@@ -49,13 +49,14 @@ const EmployeeReportForm = props => {
 
   //Calculate Daily Bonus
   const getBonus = (resumptionTime, day) => {
+    //Calculate time difference in minutes
     const resumeTime = moment(resumptionTime, 'HH:mm');
-
     const actualTime = moment(day, 'HH:mm');
     const difference = moment.duration(resumeTime.diff(actualTime));
     const mins = difference.asMinutes();
     const minutes = Math.floor(mins);
 
+    // Calculate Bonus based on time difference
     const bonus = (minutes / 5) * 50;
     return bonus;
   };
@@ -90,13 +91,14 @@ const EmployeeReportForm = props => {
   const onGenerateReport = event => {
     event.preventDefault();
 
-    // if (!state.length || state.length <= 2) {
-    //   setAlert(true);
-    //   setTimeout(() => {
-    //     setAlert(false);
-    //   }, 3000);
-    //   return;
-    // }
+    if (!state.length || state.length <= 10) {
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false);
+      }, 3000);
+      return;
+    }
+
     history.push('/report');
     // dispatch(generateReport());
   };
