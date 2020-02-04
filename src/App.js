@@ -10,10 +10,11 @@ function App() {
     <Router>
       <>
         <Switch>
+          <Route exact path='/' component={EmployeeReportForm} />
           <Route exact path='/reportForm' component={EmployeeReportForm} />
           <Route exact path='/report' component={EmployeesReports} />
           <Route exact path='/report/:name' component={EmployeeReport} />
-          <Route path='*' component={EmployeesReports} />
+          {/* <Route path='*' component={EmployeesReports} /> */}
         </Switch>
       </>
     </Router>
