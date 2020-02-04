@@ -39,12 +39,12 @@ const EmployeeReport = ({ match }) => {
               <Table bordered hover variant='secondary'>
                 <thead>
                   <tr>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th className='bg-dark text-white'>Total</th>
+                    <th>Monday (₦)</th>
+                    <th>Tuesday (₦)</th>
+                    <th>Wednesday (₦)</th>
+                    <th>Thursday (₦)</th>
+                    <th>Friday (₦)</th>
+                    <th className='bg-dark text-white'>Total (₦)</th>
                   </tr>
                 </thead>
 

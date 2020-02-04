@@ -16,7 +16,7 @@ const EmployeesReports = ({ match }) => {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Bonuses for the Week</th>
+              <th>Bonuses for the Week (₦)</th>
             </tr>
           </thead>
 
@@ -28,7 +28,7 @@ const EmployeesReports = ({ match }) => {
                     <Link to={`${match.url}/${data.name}`}>{data.name}</Link>
                   </td>
 
-                  <td>{data.weekBonus}</td>
+                  <td>{data.weekBonus} </td>
                 </tr>
               ))
             ) : (
