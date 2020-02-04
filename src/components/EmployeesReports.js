@@ -16,7 +16,7 @@ const EmployeesReports = ({ match }) => {
   return (
     <>
       <Container>
-        <Table bordered hover>
+        <Table bordered hover className='mb-3'>
           <thead>
             <tr>
               <th>Name</th>
@@ -28,9 +28,11 @@ const EmployeesReports = ({ match }) => {
             {state.length > 0 ? (
               state.map((data, index) => (
                 <tr key={index}>
-                  <Link to={`${match.url}/${data.name}`}>
-                    <td>{data.name}</td>
-                  </Link>
+                  <td className='border p-4 style'>
+                    <Link to={`${match.url}/${data.name}`} className='link'>
+                      {data.name}
+                    </Link>
+                  </td>
 
                   <td>{data.weekBonus}</td>
                 </tr>
@@ -43,9 +45,13 @@ const EmployeesReports = ({ match }) => {
           </tbody>
         </Table>
 
-        <Link to='/reportForm' variant='primary'>
-          Generate New Report
-        </Link>
+        <div className='mt-5'>
+          <Link to='/reportForm' className='text-decoration-none'>
+            <span className='p-3 text-white bg-success'>
+              Generate New Report
+            </span>
+          </Link>
+        </div>
       </Container>
     </>
   );

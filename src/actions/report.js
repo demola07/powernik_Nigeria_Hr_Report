@@ -4,7 +4,7 @@ import axios from 'axios';
 export const addEmpolyeeDetail = report => async dispatch => {
   try {
     const res = await axios.get('https://randomuser.me/api/?inc=picture');
-    const employeeImage = res.data.results[0].picture.medium;
+    const employeeImage = res.data.results[0].picture.large;
     report.image = employeeImage;
   } catch (error) {
     console.error(error);

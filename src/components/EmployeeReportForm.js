@@ -106,7 +106,7 @@ const EmployeeReportForm = props => {
   return (
     <>
       <Container>
-        <h1 className='text-center bg-secondary p-3 mb-4'>
+        <h1 className='  mb-4 shadow p-4 mb-4 text-center'>
           Employee Report Form
         </h1>
         <Form onSubmit={onSubmit}>

@@ -1,4 +1,4 @@
-import { ADD_EMPLOYEE_DETAIL, GENERATE_REPORT } from '../actions/types';
+import { ADD_EMPLOYEE_DETAIL } from '../actions/types';
 
 const initialState = [];
 
