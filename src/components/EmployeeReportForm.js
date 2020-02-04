@@ -10,7 +10,9 @@ import { useHistory } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const EmployeeReportForm = () => {
+const EmployeeReportForm = props => {
+  console.log(props);
+
   let history = useHistory();
   const dispatch = useDispatch();
 
@@ -95,7 +97,7 @@ const EmployeeReportForm = () => {
     //   }, 3000);
     //   return;
     // }
-    history.push('/reports');
+    history.push('/report');
     // dispatch(generateReport());
   };
 

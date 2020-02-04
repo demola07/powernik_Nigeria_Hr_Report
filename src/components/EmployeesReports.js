@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 
-const EmployeesReports = () => {
+const EmployeesReports = ({ match }) => {
   const dispatch = useDispatch();
 
   const state = useSelector(state => {
@@ -24,18 +24,14 @@ const EmployeesReports = () => {
             </tr>
           </thead>
 
-          {/* <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>40</td>
-            </tr>
-          </tbody> */}
-
           <tbody>
             {state.length > 0 ? (
               state.map((data, index) => (
                 <tr key={index}>
-                  <td>{data.name}</td>
+                  <Link to={`${match.url}/${data.name}`}>
+                    <td>{data.name}</td>
+                  </Link>
+
                   <td>{data.weekBonus}</td>
                 </tr>
               ))
