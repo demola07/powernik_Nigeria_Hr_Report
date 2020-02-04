@@ -25,9 +25,7 @@ const EmployeesReports = ({ match }) => {
               state.map((data, index) => (
                 <tr key={index}>
                   <td className='border p-4 style'>
-                    <Link to={`${match.url}/${data.name}`} className='link'>
-                      {data.name}
-                    </Link>
+                    <Link to={`${match.url}/${data.name}`}>{data.name}</Link>
                   </td>
 
                   <td>{data.weekBonus}</td>
